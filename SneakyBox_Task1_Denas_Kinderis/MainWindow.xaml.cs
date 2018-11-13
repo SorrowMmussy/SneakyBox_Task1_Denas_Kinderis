@@ -23,6 +23,22 @@ namespace SneakyBox_Task1_Denas_Kinderis
         public MainWindow()
         {
             InitializeComponent();
+            //
+        }
+
+        private void Button_Click_Rows(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Columns(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Rotate(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

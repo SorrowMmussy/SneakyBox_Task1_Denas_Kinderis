@@ -23,7 +23,9 @@ namespace SneakyBox_Task1_Denas_Kinderis
         public MainWindow()
         {
             InitializeComponent();
-            //
+           //datasource
+           //observable collection
+           //binding
         }
 
         private void Button_Click_Rows(object sender, RoutedEventArgs e)

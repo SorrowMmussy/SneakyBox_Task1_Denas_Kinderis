@@ -1,0 +1,9 @@
+﻿<Application x:Class="SneakyBox_Task1_Denas_Kinderis.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SneakyBox_Task1_Denas_Kinderis"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

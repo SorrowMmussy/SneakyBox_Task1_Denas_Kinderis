@@ -23,22 +23,46 @@ namespace SneakyBox_Task1_Denas_Kinderis
         public MainWindow()
         {
             InitializeComponent();
-           //datasource
-           //observable collection
-           //binding
+        }
+        //Columns
+        private void TB_Columns_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int columns;
+
+            if (!int.TryParse(TB_Columns.Text, out columns))
+            {
+                return;
+            }
+            
+            DG_Main.Columns.Clear();
+
+            for (int i = 0; i < columns; i++)
+            {
+                var column = new DataGridTextColumn();
+                DG_Main.Columns.Add(column);
+            }
+        }
+        //Rows
+        private void TB_Rows_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int rows;
+            if (!int.TryParse(TB_Rows.Text, out rows))
+            {
+                return;
+            }
+            DG_Main.Items.Clear();
+            for (int i = 0; i < rows; i++)
+            {
+                DG_Main.Items.Add((i));
+            }
         }
 
-        private void Button_Click_Rows(object sender, RoutedEventArgs e)
+        private void S_Rotation_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
 
-        private void Button_Click_Columns(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_Rotate(object sender, RoutedEventArgs e)
+        private void DG_Main_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

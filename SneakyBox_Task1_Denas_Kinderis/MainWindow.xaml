@@ -8,34 +8,23 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="textBox_row" Height="21" Margin="0,68,341,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="-0.114,0.77" Grid.ColumnSpan="2"/>
-        <TextBox Name="textBox_collum" HorizontalAlignment="Right" Height="21" Margin="0,68,185,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
-        <Slider Name="slider_rotate" HorizontalAlignment="Right" Margin="0,68,40,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.5,0.5" Height="18" Grid.Column="1">
-            <Slider.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Slider.RenderTransform>
-        </Slider>
-        <Button Name="ButtonRows" Content="Change rows" Margin="0,19,312,0" VerticalAlignment="Top" Height="37" HorizontalAlignment="Right" Width="125" Grid.ColumnSpan="2" Click="Button_Click_Rows"/>
-        <Button Name="ButtonColumns" Content="Change columns" HorizontalAlignment="Right" Margin="0,19,160,0" Width="125" RenderTransformOrigin="-2.001,3.022" Grid.ColumnSpan="2" Height="37" VerticalAlignment="Top" Click="Button_Click_Columns"/>
-        <Button Name="ButtonRotation" Content="Change rotation" Margin="0,19,10,0" Grid.Column="1" HorizontalAlignment="Right" Width="125" Height="37" VerticalAlignment="Top" Click="Button_Click_Rotate"/>
-        <DataGrid Name="DataGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="186" Margin="21,106,0,0" VerticalAlignment="Top" Width="473" RenderTransformOrigin="0.5,0.5">
-            <DataGrid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </DataGrid.RenderTransform>
-        </DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <DataGrid Name="DG_Main" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0" Margin="50" AutoGenerateColumns="False" SelectionChanged="DG_Main_SelectionChanged"/>
+
+        <Label Content="Rows" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="0"/>
+        <Label Content="Columns" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+        <Label Content="Rotation" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="2"/>
+
+        <TextBox Name="TB_Rows" Height="21" Margin="50,4,0,0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="70" Grid.Column="0" TextChanged="TB_Rows_TextChanged"/>
+        <TextBox Name="TB_Columns" HorizontalAlignment="Left" Height="21" Margin="70,4,0,0" Text="0" VerticalAlignment="Center" Width="70" Grid.Column="1" TextChanged="TB_Columns_TextChanged"/>
+        <Slider Name="S_Rotation" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" Width="90" Height="18" Grid.Column="2" Maximum="90" ValueChanged="S_Rotation_ValueChanged" UseLayoutRounding="False"/>
     </Grid>
 </Window>

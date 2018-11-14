@@ -70,18 +70,23 @@ namespace SneakyBox_Task1_Denas_Kinderis
         {
             int columns = 0;
 
+            #region DataGrid null condition
             if (DG_Main == null)
             {
                 return;
             }
-
+            #endregion
+            
+            #region textbox checker column
             if (!int.TryParse(TB_Columns.Text, out columns))
             {
                 return;
             }
+            #endregion
 
             DG_Main.Columns.Clear();
 
+            #region binding/setting size/ adding column
             for (int i = 0; i < columns; i++)
             {
                 var column = new DataGridTextColumn();
@@ -89,6 +94,7 @@ namespace SneakyBox_Task1_Denas_Kinderis
                 column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
                 DG_Main.Columns.Add(column);
             }
+            #endregion
         }
         /// <summary>  
         /// Rows method with UI check for crash & filling DataGrid with chosen element.
@@ -99,22 +105,28 @@ namespace SneakyBox_Task1_Denas_Kinderis
         {
             int rows = 0;
 
+            #region DataGrid null condition
             if (DG_Main == null)
             {
                 return;
             }
+            #endregion
 
+            #region textbox checker roww
             if (!int.TryParse(TB_Rows.Text, out rows))
             {
                 return;
             }
-
+            #endregion
+            
             DG_Main.Items.Clear();
 
+            #region filling rows with chosen data
             for (int i = 0; i < rows; i++)
             {
                 DG_Main.Items.Add(new MyData("SB"));
             }
+            #endregion
         }
         /// <summary>  
         /// Skewing or rotating DataGrid
@@ -122,11 +134,13 @@ namespace SneakyBox_Task1_Denas_Kinderis
         /// <param name="angle"></param>
         private void SkewDataGrid()
         {
+            #region DataGrid null condition
             if (DG_Main == null)
             {
                 return;
             }
-
+            #endregion
+            
             double angle = S_Rotation.Value;
 
             DG_Main.RenderTransform = new SkewTransform(angle,0, 0, 0);

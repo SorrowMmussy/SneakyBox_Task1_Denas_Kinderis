@@ -24,37 +24,64 @@ namespace SneakyBox_Task1_Denas_Kinderis
         {
             InitializeComponent();
         }
-        //-------------------------------------------------------------------------
+        /// <summary>  
+        /// Adding columns & rows & rotating (works without)
+        /// </summary>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            DG_Main.Items.Clear();
-            for (int i = 0; i < int.Parse(TB_Rows.Text); i++)
-            {
-                DG_Main.Items.Add(new MyData("SB"));
-            }
-            DG_Main.Columns.Clear();
-            for (int i = 0; i < int.Parse(TB_Columns.Text); i++)
-            {
-                var column = new DataGridTextColumn();
-                column.Binding = new Binding("MyNumber");
-                column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
-                DG_Main.Columns.Add(column);
-            }
+            CreateColumns();
+            CreateRows();
+            SkewDataGrid();
         }
         //-------------------------------------------------------------------------
-        //Columns
         private void TB_Columns_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CreateColumns();
+        }
+        //-------------------------------------------------------------------------
+        private void TB_Rows_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CreateRows();
+        }
+        //-------------------------------------------------------------------------
+        private void S_Rotation_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            SkewDataGrid();
+        }
+        //-------------------------------------------------------------------------
+        /// <summary>  
+        /// Puttin actual stuff in
+        /// </summary>
+        /// <param name="MyNumber"></param>
+        class MyData
+        {
+            public string MyNumber { get; set; }
+            public MyData(string n)
+            {
+                MyNumber = n;
+            }
+        }
+        /// <summary>  
+        /// Columns method with UI check for crash
+        /// </summary>
+        /// <param name="columns"></param>
+        /// <param name="column"></param>
+        private void CreateColumns()
+        {
+            int columns = 0;
+
             if (DG_Main == null)
             {
                 return;
             }
-            int columns = 0;
+
             if (!int.TryParse(TB_Columns.Text, out columns))
             {
                 return;
             }
+
             DG_Main.Columns.Clear();
+
             for (int i = 0; i < columns; i++)
             {
                 var column = new DataGridTextColumn();
@@ -63,44 +90,47 @@ namespace SneakyBox_Task1_Denas_Kinderis
                 DG_Main.Columns.Add(column);
             }
         }
-        //Rows
-        private void TB_Rows_TextChanged(object sender, TextChangedEventArgs e)
+        /// <summary>  
+        /// Rows method with UI check for crash & filling DataGrid with chosen element.
+        /// </summary>
+        /// <param name="columns"></param>
+        /// <param name="column"></param>
+        private void CreateRows()
         {
+            int rows = 0;
+
             if (DG_Main == null)
             {
                 return;
             }
-            int rows = 0;
+
             if (!int.TryParse(TB_Rows.Text, out rows))
             {
                 return;
             }
+
             DG_Main.Items.Clear();
+
             for (int i = 0; i < rows; i++)
             {
                 DG_Main.Items.Add(new MyData("SB"));
             }
         }
-        //Rotate
-        private void S_Rotation_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        /// <summary>  
+        /// Skewing or rotating DataGrid
+        /// </summary>
+        /// <param name="angle"></param>
+        private void SkewDataGrid()
         {
             if (DG_Main == null)
             {
                 return;
             }
+
             double angle = S_Rotation.Value;
-            //RotateTransform rtt = new RotateTransform(angle);
-            SkewTransform skewTransform1 = new SkewTransform(angle, 0, -0.5, 0.5);
-            DG_Main.RenderTransform = skewTransform1;
-        }
-        //-------------------------------------------------------------------------
-        class MyData
-        {
-            public string MyNumber { get; set; }
-            public MyData(string n)
-            {
-                MyNumber = n;
-            }
+
+            DG_Main.RenderTransform = new SkewTransform(angle,0, 0, 0);
+            //DG_Main.RenderTransform = new RotateTransform(S_Rotation.Value);
         }
     }
 }

@@ -5,26 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SneakyBox_Task1_Denas_Kinderis"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Loaded="MainWindow_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="172*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Name="DG_Main" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0" Margin="50" AutoGenerateColumns="False" SelectionChanged="DG_Main_SelectionChanged"/>
+        <DataGrid Name="DG_Main" Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="0" Margin="50" AutoGenerateColumns="False"/>
 
-        <Label Content="Rows" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="0"/>
-        <Label Content="Columns" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
-        <Label Content="Rotation" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="2"/>
+        <Label Content="Rows" HorizontalAlignment="Left" Margin="10,12,0,12" VerticalAlignment="Center" Grid.Column="0"/>
+        <Label Content="Columns" HorizontalAlignment="Left" Margin="10,12,0,12" VerticalAlignment="Center" Grid.Column="1"/>
+        <Label Content="Rotation" HorizontalAlignment="Left" Margin="10,12,0,12" VerticalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="2"/>
 
-        <TextBox Name="TB_Rows" Height="21" Margin="50,4,0,0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="70" Grid.Column="0" TextChanged="TB_Rows_TextChanged"/>
-        <TextBox Name="TB_Columns" HorizontalAlignment="Left" Height="21" Margin="70,4,0,0" Text="0" VerticalAlignment="Center" Width="70" Grid.Column="1" TextChanged="TB_Columns_TextChanged"/>
-        <Slider Name="S_Rotation" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" Width="90" Height="18" Grid.Column="2" Maximum="90" ValueChanged="S_Rotation_ValueChanged" UseLayoutRounding="False"/>
+        <TextBox Name="TB_Rows" Height="22" Margin="50,16,0,12" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="70" Grid.Column="0" TextChanged="TB_Rows_TextChanged"/>
+        <TextBox Name="TB_Columns" HorizontalAlignment="Left" Height="22" Margin="70,16,0,12" Text="0" VerticalAlignment="Center" Width="70" Grid.Column="1" TextChanged="TB_Columns_TextChanged"/>
+        <Slider Name="S_Rotation" HorizontalAlignment="Left" Margin="24.986,16,0,16" VerticalAlignment="Center" Width="90" Height="18" Grid.Column="3" Maximum="90" ValueChanged="S_Rotation_ValueChanged" UseLayoutRounding="False"/>
     </Grid>
 </Window>
